@@ -4,7 +4,7 @@
  * _putchar - writes the characteer c to stdout
  * @c: The character to print
  *
- * ReturnL On success 1.
+ * Return: On success 1.
  * On error, -1 is returned, and error is set appropriately.
  */
 
@@ -38,6 +38,21 @@ char *_strncpy(char *dest, const char *src, int n)
 
 	return (dest);
 }
+
+
+/**
+ * _puts - Print a string followed by a newline
+ * @str: Pointer  to a string
+ */
+void _puts(char *str)
+{
+	while (*str)
+		_putchar(*str++);
+
+	_putchar('\n');
+}
+
+
 
 /**
  * _strlen - Length of a string
