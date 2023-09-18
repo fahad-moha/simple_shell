@@ -38,3 +38,22 @@ char *_strncpy(char *dest, const char *src, int n)
 
 	return (dest);
 }
+
+/**
+ * _strlen - Length of a string
+ * @s: Pointer to a string
+ *
+ * Return: Length of the string
+ */
+
+int _strlen(char *s)
+{
+	int length = 0;
+
+	while (s[length] != '\0')
+		length++;
+
+	return (length);
+
+}
+
