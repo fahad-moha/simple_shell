@@ -42,3 +42,25 @@ char *_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
+
+/**
+ * _strcat - COncatenate two strings
+ * @dest: Destination string
+ * @src: Source string
+ *
+ * Return: Pointer to the destiantion string
+ */
+char *_strcat(char *dest, const char *src)
+{
+	char *s = dest;
+
+	while (*dest)
+		dest++;
+
+	while (*src)
+		*dest++ = *src++;
+
+	*dest = '\0';
+	return (s);
+}
+
