@@ -81,3 +81,32 @@ char *_strchr(char *s, char c)
 
 	return ((*s == c) ? s : NULL);
 }
+
+/**
+ * _strncmp - Compare amount (n) of characters of two stings.
+ * @s1: A string
+ * @s2: A string
+ * @n: Amount of characters to compare
+ *
+ * Return: 1 if the strings don't match otherwise 0
+ */
+int _strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t i;
+
+	if (s1 == NULL)
+		return (-1);
+
+	for (i = 0; i < n; i++)
+	{
+		if (s1[i] != s2[i])
+			return (1);
+
+		if (s2[i] == '\0')
+			return (0);
+	}
+
+	return (0);
+}
+
+
