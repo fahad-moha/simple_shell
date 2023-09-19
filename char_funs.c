@@ -32,7 +32,7 @@ char *_strncpy(char *dest, const char *src, int n)
 
 	while (i < n)
 	{
-		ddest[i] = '\0';
+		dest[i] = '\0';
 		i++;
 	}
 

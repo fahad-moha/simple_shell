@@ -24,3 +24,21 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 
 	return (0);
 }
+
+/**
+ * _strcpy - Copy source string to destination
+ * @dest: Destination string
+ * @src: Source string
+ *
+ * Return: Pointer to destination string
+ */
+char *_strcpy(char *dest, const char *src)
+{
+	int i = 0;
+
+	while ((dest[i] = src[i]) != '\0')
+		i++;
+
+	return (dest);
+}
+
