@@ -28,7 +28,7 @@ int command_exists(char **cmd, char *input, int c, char **argv)
 	{
 		if (_strncmp(*cmd, "./", 2) != 0 && _strncmp(*cmd, "/", 1) != 0)
 		{
-			path_cmd(cmd);
+			is_path_cmd(cmd);
 		}
 
 		if (execve(*cmd, cmd, environ) == -1)

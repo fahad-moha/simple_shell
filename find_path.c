@@ -33,3 +33,32 @@ int is_path_cmd(char **cmd)
 
 	return (1);
 }
+
+
+/**
+ * build - Build command
+ * @token: Executable command
+ * @value: Directory containing command
+ *
+ * Return: Parsed full path of command or NULL case failed
+ */
+char *build(char *token, char *value)
+{
+	size_t value_len = _strlen(value);
+	size_t token_len = _strlen(token);
+
+	/* Calculate the total length needed for cmd */
+	size_t len = value_len + token_len + 2;
+
+	char *cmd = malloc(len);
+
+	if (cmd == NULL)
+		return (NULL);
+
+	cmd = _strcat(cmd, value);
+	cmd = _strcat(cmd, "/");
+	cmd = _strcat(cmd, token);
+
+	return (cmd);
+}
+
