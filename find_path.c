@@ -62,3 +62,28 @@ char *build(char *token, char *value)
 	return (cmd);
 }
 
+
+/**
+ * _getenv - Gets the value of an environment variable by name
+ * @name: Environment variable name
+ *
+ * Return: The value of the environment variable, or NULL if not found
+ */
+char *_getenv(char *name)
+{
+	size_t len = strlen(name);
+	int i;
+
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		if (_strncmp(name, environ[i], len) == 0)
+		{
+			char *value = _strdup(environ[i] + len + 1);
+
+			return (value);
+		}
+	}
+
+	return (NULL);
+
+}
