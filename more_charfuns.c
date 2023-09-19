@@ -8,23 +8,45 @@
  */
 char *_itoa(unsigned int n)
 {
-	int len;
-	char *s;
+	char *result, *ptr;
 
-	len = intlen(n);
-	s = malloc(len + 1);
+	result = malloc(12);
 
-	if (!s)
+	if (!result)
 		return (NULL);
 
-	s[len] = '\0';/* NUll - terminate the string */
+	ptr = result;
+	do {
+		*ptr++ = (n % 10) + '0';
+	} while (n /= 10);
 
-	while (len-- > 0)
-	{
-		s[len] = (n % 10) + '0';
-		n /= 10;
-	}
+	*ptr = '\0';
 
-	return (s);
+	/* Reverse the string */
+	reverse(result, ptr - result);
+
+	return (result);
 }
+
+/**
+ * reverse - Reverse string
+ * @str: String to Reverse
+ * @len: Length of String
+ *
+ * Return: Void(Reverse string)
+ */
+
+void reverse(char *str, int len)
+{
+	int i;
+	char tmp;
+
+	for (i = 0; i < len / 2; i++)
+	{
+		tmp = st[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = tmp;
+	}
+}
+
 

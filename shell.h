@@ -48,6 +48,7 @@ char *_strcat(char *dse, const char *src);
 char *_strchr(char *s, char c);
 char *_itoa(unsigned int n);
 char *_strdup(char *str);
+void reverse(char *str, int len);
 
 /** error handle and Display **/
 void print_error(char *line, int c, char **argv);
