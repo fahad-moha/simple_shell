@@ -1,31 +1,6 @@
 #include "shell.h"
 
 /**
- * _strncmp - Compare amount (n) of characters of two strings
- * @s1: A string
- * @s2: A string
- * @n: Amount of charcter to compare.
- *
- * Return: 1 If the strings don't match otherwise 0
- */
-int _strncmp(const char *s1, const char *s2, size_t n)
-{
-	if (s1 == NULL)
-		return (-1);
-
-	for (; n > 0; s1++, s2++, n--)
-	{
-		if (*s1 != *s2)
-			return (1);
-		
-		if (*s2 == '\0')
-			return (1);
-	}
-
-	return (0);
-}
-
-/**
  * _strcpy - Copy source string to destination
  * @dest: Destination string
  * @src: Source string
@@ -109,4 +84,27 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
+/**
+ * _strdup - Duplicate a string
+ * @str: String to duplicate
+ *
+ * Return: Pointer to the duplicated string, or NULL on failure
+ */
+char *_strdup(char *str)
+{
+	if (str == NULL)
+		return (NULL);
+
+	size_t len = _strlen(str) + 1;
+	char *str2 = malloc(len);
+	size_t i;
+
+	if (str2 == NULL)
+		return (NULL);
+
+	for (i = 0; i < len; i++)
+		str2[i] = str[i];
+
+	return (str2);
+}
 
