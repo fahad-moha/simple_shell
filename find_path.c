@@ -10,10 +10,10 @@
 
 int is_path_cmd(char **cmd)
 {
-	char *path = _getenv("PATH");
+	char *path = _getenv("PATH"), *value, *cmd_path;
 	struct stat buf;
 
-	path = _getenv("PATH");
+	/* path = _getenv("PATH"); */
 	value = _strtok(path, ":");
 
 	while (value != NULL)
@@ -27,7 +27,7 @@ int is_path_cmd(char **cmd)
 			return (0);
 		}
 		free(cmd_path);
-		value  = _strtok(NULL, ":")
+		value  = _strtok(NULL, ":");
 	}
 	free(path);
 

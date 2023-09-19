@@ -13,10 +13,12 @@
 
 int command_exists(char **cmd, char *input, int c, char **argv)
 {
+	pid_t pid;
+
 	if (*cmd == NULL)
 		return (-1);
 
-	pid_t paid = fork();
+	pid = fork();
 
 	if (pid == -1)
 	{
@@ -43,7 +45,7 @@ int command_exists(char **cmd, char *input, int c, char **argv)
 	{
 		int status;
 
-		wait(&ststus);
+		wait(&status);
 		return (WIFEXITED(status) ? WEXITSTATUS(status) : -1);
 	}
 

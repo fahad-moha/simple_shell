@@ -92,12 +92,15 @@ int _strncmp(const char *s1, const char *s2, size_t n)
  */
 char *_strdup(char *str)
 {
+	size_t len, i;
+	char *str2;
+
 	if (str == NULL)
 		return (NULL);
 
-	size_t len = _strlen(str) + 1;
-	char *str2 = malloc(len);
-	size_t i;
+	len = _strlen(str) + 1;
+
+	str2 = malloc(len);
 
 	if (str2 == NULL)
 		return (NULL);
