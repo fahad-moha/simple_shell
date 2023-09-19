@@ -16,6 +16,7 @@ extern char **environ;
 #include <signal.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <linux/limits.h>
 
 /** INPUT functions **/
 void prompt(void);
@@ -49,6 +50,7 @@ char *_strchr(char *s, char c);
 char *_itoa(unsigned int n);
 char *_strdup(char *str);
 void reverse(char *str, int len);
+int intlen(int num);
 
 /** error handle and Display **/
 void print_error(char *line, int c, char **argv);

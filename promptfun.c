@@ -17,9 +17,14 @@ void prompt(void)
  */
 void print_error(char *input, int counter, char **argv)
 {
+	char *slip;
+
+
 	DISPLAY(argv[0]);
 	DISPLAY(": ");
-	DISPLAY(_itoa(counter));
+	slip = _itoa(counter);
+	DISPLAY(slip);
+	free(slip);
 	DISPLAY(": ");
 	DISPLAY(input);
 	DISPLAY(": not found\n");

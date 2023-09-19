@@ -8,26 +8,30 @@
  */
 char *_itoa(unsigned int n)
 {
-	char *result, *ptr;
+	int len = 0, i = 0;
+	char *s;
 
-	result = malloc(12);
+	len  = intlen(n);
+	s = malloc(len + 1);
 
-	if (!result)
+	if (!s)
 		return (NULL);
 
-	ptr = result;
-	do {
-		*ptr++ = (n % 10) + '0';
-	} while (n /= 10);
+	*s = '\0'; /* Null-terminate the string first */
 
-	*ptr = '\0';
+	while (n / 10)
+	{
+		s[i] = (n % 10) + '0';
+		i++;
+	}
+	s[i] = (n % 10) + '0';
 
 	/* Reverse the string */
-	reverse(result, ptr - result);
+	reverse(s, len);
+	s[i + 1] = '\0';
+	return (s);
 
-	return (result);
 }
-
 /**
  * reverse - Reverse string
  * @str: String to Reverse
@@ -43,10 +47,36 @@ void reverse(char *str, int len)
 
 	for (i = 0; i < len / 2; i++)
 	{
-		tmp = st[i];
+		tmp = str[i];
 		str[i] = str[len - i - 1];
 		str[len - i - 1] = tmp;
 	}
 }
 
+
+/**
+ * intlen - Determine the length of an integer
+ * @num: Given integer
+ *
+ * Return: Length of the integer
+ */
+int intlen(int num)
+{
+	int len;
+
+
+	if (num == 0)
+		return (1);
+
+	len = 0;
+
+	while (num != 0)
+	{
+		len++;
+		num /= 10;
+
+	}
+
+	return (len);
+}
 
