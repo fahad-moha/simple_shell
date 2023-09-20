@@ -32,6 +32,7 @@ int is_path_cmd(char **line);
 char *_getenv(char *name);
 int command_exists(char **tokens, char *line, int count, char **argv);
 char *build(char *token, char *value);
+char **parse_cmd(char *cmd);
 
 
 
@@ -54,7 +55,14 @@ int intlen(int num);
 
 /** error handle and Display **/
 void print_error(char *line, int c, char **argv);
+void print_number(unsigned int n);
+void print_number_in(int n);
+void _prerror(char **argv, int c, char **cmd);
 
+/*****#### MEMORY MANAGEMENT  #####******/
+void *_realloc(void *ptr, unsigned int old_sie, unsigned int new_size);
+
+void free_all(char **cmd, char *line);
 
 
 

@@ -32,3 +32,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	return (result);
 }
+
+/**
+ * free_all - Free array of char pointer and char pointer
+ * @cmd: Array Pointer
+ * @line: char pointer
+ */
+
+void free_all(char **cmd, char *line)
+{
+	 free(cmd);
+	 free(line);
+	 cmd = NULL;
+	 line = NULL;
+}
+
+
